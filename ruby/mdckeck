@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/md-check/cli'
+
+CLI.start(ARGV)

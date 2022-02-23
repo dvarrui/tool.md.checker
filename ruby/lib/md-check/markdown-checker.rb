@@ -1,0 +1,3 @@
+
+class MarkdownChecker
+end
