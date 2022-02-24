@@ -14,8 +14,8 @@ class MarkdownChecker
     puts "[ info ] Cheking files from #{@dirname}"
     filenames.each do |filename|
       puts " => Cheking file: #{filename}"
-      lines = get_lines_with_links_into filename
-      puts lines.size
+      rawlines = get_lines_with_links_into filename
+      puts "    - Lines to revise : #{rawlines.size}"
     end
   end
 
@@ -28,5 +28,8 @@ class MarkdownChecker
       end
     end
     selected
+  end
+
+  def revise_line(line)
   end
 end
