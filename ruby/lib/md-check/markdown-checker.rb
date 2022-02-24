@@ -1,15 +1,7 @@
 
 class MarkdownChecker
-  def initialize(dirname)
-    @dirname = dirname
-    check_dirname(@dirname)
-  end
 
-  def locate_md_filenames_from(dirname)
-    Dir.glob(File.join(dirname,'**','*.md'))
-  end
-
-  def check_dirname(dirname)
+  def self.check_dirname(dirname)
     filenames = locate_md_filenames_from(dirname)
     puts "[ info ] Cheking files from #{@dirname}"
     filenames.each do |filename|
@@ -19,8 +11,11 @@ class MarkdownChecker
     end
   end
 
+  def self.locate_md_filenames_from(dirname)
+    Dir.glob(File.join(dirname,'**','*.md'))
+  end
 
-  def get_lines_with_links_into(filename)
+  def self.get_lines_with_links_into(filename)
     selected = []
     all = File.read(filename).split("\n")
     all.each_with_index do |line, index|
@@ -32,10 +27,9 @@ class MarkdownChecker
     selected
   end
 
-  def revise_line(line)
-    require 'pry-byebug'
+  def self.revise_line(line)
+    #require 'pry-byebug';     binding.pry
     result = /!\[([a-z\-]*)\]\(([a-z\-\.\/]*)\)\s*/.match(line)
-    binding.pry
     result
   end
 end

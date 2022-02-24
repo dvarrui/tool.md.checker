@@ -18,7 +18,7 @@ class CLI < Thor
   map ['--dir'] => 'dir'
   desc 'dir DIRNAME', 'Check MD files into DIRNAME'
   def dir(dirname)
-    MDCheck.check_dir(dirname)
+    MDCheck.check_dirname(dirname)
   end
 
   def method_missing(method, *_args, &_block)
