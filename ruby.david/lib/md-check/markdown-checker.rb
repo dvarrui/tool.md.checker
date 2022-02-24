@@ -1,14 +1,17 @@
-#require 'pry-byebug';     binding.pry
+
+require 'colorize'
 
 class MarkdownChecker
 
   def self.check_dirname(dirname)
     filenames = locate_md_filenames_from(dirname)
-    puts "[ info ] Cheking files from #{@dirname}"
-    filenames.each do |filename|
-      puts " => Cheking file: #{filename}"
+    print "[ mdcheck ] Checking #{filenames.size.to_s.ligth_blue} files"
+    puts " from #{dirname.ligth_blue}"
+    filenames.each_with_index do |filename, index|
+      #require 'pry-byebug'; binding.pry
       rawlines = get_lines_with_links_into filename
-      puts "    - Lines to revise : #{rawlines.size}"
+      print " (#{index})=> Checking file #{filename}, links=".ligth_yellow
+      puts "#{rawlines.size})".ligth_yellow
     end
   end
 
@@ -39,7 +42,7 @@ class MarkdownChecker
     else
       puts "\n[ DEBUG] #{result}: "
       result.to_a.each_with_index do |value,index|
-        puts " #{index} : #{value}"
+        puts " #{index} : #{value}".white
       end
     end
   end
