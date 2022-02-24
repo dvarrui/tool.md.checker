@@ -15,12 +15,18 @@ class MarkdownChecker
     filenames.each do |filename|
       puts " => Cheking file: #{filename}"
       lines = get_lines_with_links_into filename
+      puts lines.size
     end
   end
 
   def get_lines_with_links_into(filename)
-    content = File.read(filename)
-    lines = content.split("\n")
-    puts lines.size
+    selected = []
+    all = File.read(filename).split("\n")
+    all.each_with_index do |line, index|
+      if line.include? ']('
+        selected << { filename: filename, index: index, line: line }
+      end
+    end
+    selected
   end
 end
