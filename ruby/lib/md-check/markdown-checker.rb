@@ -11,8 +11,9 @@ class MarkdownChecker
   end
 
   def check_all(filenames)
+    puts "[ info ] Cheking files from #{@dirname}"
     filenames.each do |filename|
-      puts "[ info ] Cheking file #{filename}"
+      puts " => Cheking file: #{filename}"
     end
   end
 end
