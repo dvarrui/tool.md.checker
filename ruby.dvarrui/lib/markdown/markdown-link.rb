@@ -2,9 +2,9 @@
 require 'colorize'
 require_relative 'debug'
 
-class MarkdownChecker
+class MarkdownLink
 
-  def self.check_dirname(dirname)
+  def self.show_info(dirname)
     filenames = locate_md_filenames_from(dirname)
     print "[ mdcheck ] Checking #{filenames.size.to_s} files"
     puts " from #{dirname.light_blue}"

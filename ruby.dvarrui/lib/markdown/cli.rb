@@ -1,7 +1,7 @@
 
 require 'thor'
 require_relative 'version'
-require_relative '../md-check'
+require_relative '../markdown'
 
 ##
 # Command Line User Interface
@@ -15,14 +15,16 @@ class CLI < Thor
     exit 0
   end
 
-  map ['--dir'] => 'dir'
-  desc 'dir DIRNAME', 'Check MD files into DIRNAME'
-  def dir(dirname)
-    MDCheck.check_dirname(dirname)
+  map ['--link', 'links', '--links'] => 'link'
+  option '--info', type: :boolean, desc: 'Show info about MD links'
+  option '--check', type: :boolean, desc: 'Check info about MD links'
+  desc 'link DIRNAME [--info, --check]', 'Do action with MarkDown links'
+  def link(dirname)
+    Markdown.link(dirname, options)
   end
 
   def method_missing(method, *_args, &_block)
-    dir(method.to_s)
+    link(method.to_s)
   end
 
   def respond_to_missing?(_method_name)
