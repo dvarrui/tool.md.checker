@@ -19,17 +19,23 @@ class MarkdownChecker
     end
   end
 
+
   def get_lines_with_links_into(filename)
     selected = []
     all = File.read(filename).split("\n")
     all.each_with_index do |line, index|
       if line.include? ']('
         selected << { filename: filename, index: index, line: line }
+        revise_line(line)
       end
     end
     selected
   end
 
   def revise_line(line)
+    require 'pry-byebug'
+    result = /!\[([a-z\-]*)\]\(([a-z\-\.\/]*)\)\s*/.match(line)
+    binding.pry
+    result
   end
 end
