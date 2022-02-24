@@ -14,6 +14,13 @@ class MarkdownChecker
     puts "[ info ] Cheking files from #{@dirname}"
     filenames.each do |filename|
       puts " => Cheking file: #{filename}"
+      find_links_into filename
     end
+  end
+
+  def find_links_into(filename)
+    content = File.read(filename)
+    lines = content.split("\n")
+    puts lines.size
   end
 end
