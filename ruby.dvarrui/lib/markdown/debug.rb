@@ -9,7 +9,7 @@ class Debug
     else
       puts "\n[ DEBUG] #{result}: "
       result.to_a.each_with_index do |value,index|
-        puts " #{index} : #{value}".white
+        puts " #{(index+1)} : #{value}".white
       end
     end
   end
