@@ -39,7 +39,7 @@ class MarkdownLink
   end
 
   def self.extract_link_data_from_line(line)
-    result = /[a-z\.\s]*\[([áéíóúA-Za-z0-9%¿?=.:\s\-\/]*)\]\(([A-Za-z0-9%¿?=.:\s\-\/]*)\)\s*/.match(line)
+    result = /[\*A-Za-z0-9%¿?=.:\s\-\/]*\[([áéíóúA-Za-z0-9%¿?=.:\s\-\/]*)\]\(([A-Za-z0-9%¿?=.:\s\-\/]*)\)\s*/.match(line)
     #Debug.match_data(result)
     { text: result.to_a[1], url: result.to_a[2]}
   end
