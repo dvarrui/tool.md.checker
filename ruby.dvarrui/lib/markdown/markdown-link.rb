@@ -6,15 +6,17 @@ class MarkdownLink
 
   def self.show_info(dirname)
     filenames = locate_md_filenames_from(dirname)
-    print "[ mdcheck ] Checking #{filenames.size.to_s} files"
-    puts " from #{dirname.light_blue}"
+    print "[ markdown ] Show link info about #{filenames.size.to_s} files".cyan
+    puts " from #{dirname}".cyan
     filenames.each_with_index do |filename, index|
       #require 'pry-byebug'; binding.pry
       linklines = get_lines_with_links_into filename
 
-      print " => Checking file '#{filename}' with ".light_yellow
-      puts "#{linklines.size} links".light_yellow
-      Debug.lines_with_links(linklines)
+      unless linklines.size.zero?
+        print "[ markdown ] File: #{filename} (".light_yellow
+        puts "#{linklines.size} link/s)".light_yellow
+        Debug.lines_with_links(linklines)
+      end
     end
   end
 
@@ -28,11 +30,14 @@ class MarkdownLink
     all.each_with_index do |line, index|
       if line.include? ']('
         linkdata = extract_link_data_from_line(line)
-        selected << { filename: filename,
-                      lineindex: index,
-                      line: line,
-                      linktext: linkdata[:text],
-                      linkurl: linkdata[:url]}
+        url = linkdata[:url]
+        unless url.nil? or url.start_with?('http')
+          selected << { filename: filename,
+                        lineindex: index,
+                        line: line,
+                        linktext: linkdata[:text],
+                        linkurl: linkdata[:url]}
+        end
       end
     end
     selected
