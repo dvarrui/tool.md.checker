@@ -29,7 +29,14 @@ class MarkdownChecker
 
   def self.revise_line(line)
     #require 'pry-byebug';     binding.pry
-    result = /!\[([a-z\-]*)\]\(([a-z\-\.\/]*)\)\s*/.match(line)
-    result
+    result = /[a-z\.\s]*\[([A-Za-z0-0¿?.áéíóú\-\/]*)\]\(([a-z\:\-\.\/]*)\)\s*/.match(line)
+    if result.to_a.size.zero?
+      puts "\n[ignore] #{line}"
+    else
+      puts "\n[ DEBUG] #{result}: "
+      result.to_a.each_with_index do |value,index|
+        puts " #{index} : #{value}"
+      end
+    end
   end
 end
