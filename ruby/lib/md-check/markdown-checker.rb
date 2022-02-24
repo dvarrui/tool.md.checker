@@ -1,3 +1,4 @@
+#require 'pry-byebug';     binding.pry
 
 class MarkdownChecker
 
@@ -28,8 +29,11 @@ class MarkdownChecker
   end
 
   def self.revise_line(line)
-    #require 'pry-byebug';     binding.pry
     result = /[a-z\.\s]*\[([áéíóúA-Za-z0-9%¿?=.:\s\-\/]*)\]\(([A-Za-z0-9%¿?=.:\s\-\/]*)\)\s*/.match(line)
+    debug_match_data(result)
+  end
+
+  def self.debug_match_data(result)
     if result.to_a.size.zero?
       puts "\n[ignore] #{line}"
     else
