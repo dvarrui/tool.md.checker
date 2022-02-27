@@ -1,24 +1,7 @@
 
 require 'colorize'
-require_relative 'debug'
 
-class MarkdownLink
-
-  def self.show_info(dirname)
-    filenames = locate_md_filenames_from(dirname)
-    print "[ markdown ] Show link info about #{filenames.size.to_s} files".cyan
-    puts " from #{dirname}".cyan
-    filenames.each_with_index do |filename, index|
-      #require 'pry-byebug'; binding.pry
-      linklines = get_lines_with_links_into filename
-
-      unless linklines.size.zero?
-        print "[ markdown ] File: #{filename} (".light_yellow
-        puts "#{linklines.size} link/s)".light_yellow
-        Debug.lines_with_links(linklines)
-      end
-    end
-  end
+class Functions
 
   def self.locate_md_filenames_from(dirname)
     Dir.glob(File.join(dirname,'**','*.md'))
