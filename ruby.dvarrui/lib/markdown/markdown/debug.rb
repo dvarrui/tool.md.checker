@@ -21,5 +21,25 @@ class Markdown
         puts "  #{lineindex} | #{line[:linkurl]}"
       end
     end
+
+    def self.check_links(lines: , dirpath: )
+      checked = []
+      puts "  LINE | STATUS | URL".white
+      lines.each do |line|
+        filepath = File.join(dirpath, line[:linkurl])
+        status = :FAIL
+        status = :ok if File.exist? dirpath
+
+        lineindex = "%4d" % line[:lineindex]
+        pstatus = "%4s" % status
+        msg = "  #{lineindex} | #{pstatus} | #{line[:linkurl]}"
+
+        if status == :FAIL
+          puts msg.light_red
+        else
+          puts msg.white
+        end
+      end
+    end
   end
 end

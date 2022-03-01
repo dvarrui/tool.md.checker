@@ -31,7 +31,7 @@ class Markdown
         unless linklines.size.zero?
           msg =  "[ check ] File: #{filename} (#{linklines.size} link/s)"
           puts msg.white
-          # Debug.lines_with_links(linklines)
+          Debug.check_links lines: linklines, dirpath: dirname
         end
       end
     end
