@@ -27,14 +27,13 @@ class Markdown
       lines.each do |line|
         # require 'pry-byebug'; binding.pry
         filepath = File.join(dirpath, line[:linkurl])
-        status = :FAIL
-        status = :ok if File.exist? filepath
+        status = 'FAIL'
+        status = ' ok ' if File.exist? filepath
 
         lineindex = "%4d" % line[:lineindex]
-        pstatus = "%4s" % status
-        msg = "    #{lineindex} | #{pstatus}   | #{line[:linkurl]}"
+        msg = "    #{lineindex} |  #{status}  | #{line[:linkurl]}"
 
-        if status == :FAIL
+        if status == 'FAIL'
           puts msg.light_red
         else
           puts msg.white

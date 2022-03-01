@@ -262,7 +262,7 @@ Puppet es un orquestador. Sirve para aprovisionar las máquinas locales o remota
 >
 > Fichero de configuración de puppet `mipuppet.pp`:
 >
-> ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
+> ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.PNG)
 
 ## 5.1 Preparativos
 
