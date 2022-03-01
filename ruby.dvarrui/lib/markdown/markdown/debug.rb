@@ -25,7 +25,7 @@ class Markdown
       checked = []
       puts "    LINE | STATUS | URL".white
       lines.each do |line|
-        require 'pry-byebug'; binding.pry
+        # require 'pry-byebug'; binding.pry
         filepath = File.join(dirpath, line[:linkurl])
         status = :FAIL
         status = :ok if File.exist? filepath
@@ -40,6 +40,10 @@ class Markdown
           puts msg.white
         end
       end
+    end
+
+    def self.stop
+      require 'pry-byebug'; binding.pry
     end
   end
 end
