@@ -16,7 +16,7 @@ class Markdown
         unless linklines.size.zero?
           msg = "[ info ] File: #{filename} (#{linklines.size} link/s)"
           puts msg.light_cyan
-          Debug.lines_with_links(linklines)
+          Debug.show_lines_with_links(linklines)
         end
       end
     end

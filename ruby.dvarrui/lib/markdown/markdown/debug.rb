@@ -14,7 +14,7 @@ class Markdown
       end
     end
 
-    def self.lines_with_links(lines)
+    def self.show_lines_with_links(lines)
       puts "  LINE | URL".white
       lines.each do |line|
         lineindex = "%4d" % line[:lineindex]
