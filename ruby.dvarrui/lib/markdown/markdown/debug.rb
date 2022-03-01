@@ -15,24 +15,24 @@ class Markdown
     end
 
     def self.show_lines_with_links(lines)
-      puts "  LINE | URL".white
       lines.each do |line|
-        lineindex = "%4d" % line[:lineindex]
-        puts "  #{lineindex} | #{line[:linkurl]}"
+        lineindex = "%04d" % line[:lineindex]
+        puts "    LINE: #{lineindex} | URL: #{line[:linkurl]}"
       end
     end
 
     def self.check_links(lines: , dirpath: )
       checked = []
-      puts "  LINE | STATUS | URL".white
+      puts "    LINE | STATUS | URL".white
       lines.each do |line|
+        require 'pry-byebug'; binding.pry
         filepath = File.join(dirpath, line[:linkurl])
         status = :FAIL
-        status = :ok if File.exist? dirpath
+        status = :ok if File.exist? filepath
 
         lineindex = "%4d" % line[:lineindex]
         pstatus = "%4s" % status
-        msg = "  #{lineindex} | #{pstatus} | #{line[:linkurl]}"
+        msg = "    #{lineindex} | #{pstatus}   | #{line[:linkurl]}"
 
         if status == :FAIL
           puts msg.light_red

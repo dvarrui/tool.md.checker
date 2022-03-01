@@ -53,7 +53,7 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 
 ## 1.1 Imagen, caja o box
 
-Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas de otros sistemas oprativos desde [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
+Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas de otros sistemas operativos desde [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
 
 > OJO: Sustituir **BOXNAME** por `ubuntu/bionic64`
 

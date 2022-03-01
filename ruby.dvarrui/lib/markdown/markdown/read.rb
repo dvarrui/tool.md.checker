@@ -14,6 +14,7 @@ class Markdown
         if line.include? ']('
           linkdata = extract_link_data_from_line(line)
           url = linkdata[:url]
+          # require 'pry-byebug'; binding.pry
           unless url.nil? or url.start_with?('http')
             selected << { filename: filename,
                           lineindex: index,
@@ -27,7 +28,7 @@ class Markdown
     end
 
     def self.extract_link_data_from_line(line)
-      result = /[\*A-Za-z0-9%¿?=.:\s\-\/]*\[([áéíóúA-Za-z0-9%¿?=.:\s\-\/]*)\]\(([A-Za-z0-9%¿?=.:\s\-\/]*)\)\s*/.match(line)
+      result = /[\*A-Za-záéíóú0-9%¿?=.:!\|\s\-\/]*\[([A-Za-záéíóú0-9%¿?=.:!\|\s\-\/]*)\]\(([A-Za-z0-9%¿?=.:\s\-\/]*)\)\s*/.match(line)
       # Debug.match_data(result)
       { text: result.to_a[1], url: result.to_a[2]}
     end

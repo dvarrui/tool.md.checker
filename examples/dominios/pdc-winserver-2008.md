@@ -31,7 +31,7 @@ Necesitaremos las siguientes máquinas virtuales:
 | -- | ----------------- | ------------- | --- |
 | 01 | Windows 2008 Server Enterprise | [Consultar](../../global/configuracion/windows-server.md) | DNS1 = `127.0.0.1` |
 | 02 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
-| 03 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+| 03 | Windows 7 Enterprise | [Consultar](../../lgobal/configuracion/windows.md) | DNS1 = IP Windows Server |
 
 
 ## 1.2 OBSERVACIONES
@@ -56,7 +56,7 @@ Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU
     * [Raspberry PI3](https://en.opensuse.org/HCL:Raspberry_Pi3)
 * Luego podemos usar Yast para unir el equipo RbPI al dominio.
 
-![](files/pdc-rbpi-opensuse.png)
+![](files/pdc-rbpi-opensuse.PNG)
 
 **Raspberry PI con Ubuntu/Debian**: [Leer práctica](pdc-cliente-ubuntu-debian.md)
 
