@@ -7,7 +7,7 @@ class Markdown
   class Link
     def self.show_info(dirname)
       filenames = Read.locate_md_filenames_from(dirname)
-      msg = "[ info ] Show link info about #{filenames.size.to_s} files from #{dirname}"
+      msg = "[ info ] Show links: #{filenames.size.to_s} files <= #{dirname}"
       puts msg.cyan
       filenames.each_with_index do |filename, index|
         #require 'pry-byebug'; binding.pry
@@ -23,8 +23,8 @@ class Markdown
 
     def self.check(dirname)
       filenames = Read.locate_md_filenames_from(dirname)
-      print "[ check ] Show link info about #{filenames.size.to_s} files".cyan
-      puts " from #{dirname}".cyan
+      msg = "[ check ] Check links: #{filenames.size.to_s} files <= #{dirname}"
+      puts msg.cyan
       filenames.each_with_index do |filename, index|
         linklines = Read.get_lines_with_links_into filename
 

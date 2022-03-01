@@ -15,10 +15,10 @@ class Markdown
     end
 
     def self.lines_with_links(lines)
-      puts "      LINE | URL".white
+      puts "  LINE | URL".white
       lines.each do |line|
         lineindex = "%4d" % line[:lineindex]
-        puts "      #{lineindex} | #{line[:linkurl]}"
+        puts "  #{lineindex} | #{line[:linkurl]}"
       end
     end
   end
